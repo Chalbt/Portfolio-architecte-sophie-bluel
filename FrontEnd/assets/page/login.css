@@ -31,6 +31,7 @@ body
 {
     width: 150px;
     padding: 5px 0 5px 0;
+    border: 0;
 }
 
 .mot-de-passe input, .e-mail input
