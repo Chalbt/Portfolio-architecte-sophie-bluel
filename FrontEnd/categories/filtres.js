@@ -1,31 +1,36 @@
 afficherLesFiltres ()
 
 async function afficherLesFiltres() {
-    const response = await fetch('http://localhost:5678/api/works');
-    let filtres = await response.json();
-    console.log(filtres)
+    let projets = await recupererProjets();
+    console.log(projets)
 
-    const containerFiltres = document.getElementById("filtres")
-    for (let filtre of filtres) {
-        const boutonFiltre = creerBoutonFiltre (filtre);
-        containerFiltres.appendChild(boutonFiltre);
-        boutonFiltre.addEventListener("click", () => {
-           
-        })
+    const filtresSet = new Set ();
+    filtresSet.add("Tous");
+ 
+    const containerFiltres = document.getElementById("filtres");
+    for (let projet of projets) {
+        filtresSet.add(projet.category.name);   
     }
 
-    const categoriesSet = new Set ();
-    categoriesSet.add("Tous");
-    categoriesSet.add("Objets");
-    categoriesSet.add("Appartements");
-    categoriesSet.add("Hôtels et restaurants");
+    for (let filtre of filtresSet) {
+        const boutonFiltre = creerBoutonFiltre(filtre);
+        containerFiltres.appendChild(boutonFiltre);
+    }
 }
 
-function creerBoutonFiltre (filtre) {
+function creerBoutonFiltre(filtre) {
     const boutonElt = document.createElement("button");
-    const nomBoutonElt = document.createElement("p");
-    nomBoutonElt.innerText = filtre.category.name;
-    boutonElt.appendChild(nomBoutonElt);
+    boutonElt.innerText = filtre;
+    boutonElt.addEventListener("click", auClickSurFiltre.bind(boutonElt, filtre));
     return boutonElt;
 }
 
+async function auClickSurFiltre(filtre) {
+    let projets = await recupererProjets();
+    if (filtre !== "Tous") {
+        //appliquer le filtre
+        
+        projets = projets.filter(projet => projet.category.name === filtre);
+    }
+    afficherLaGalerie(projets);    
+}

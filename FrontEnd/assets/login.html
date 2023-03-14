@@ -10,6 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="page/login.css">
+	
 </head>
 <body>
 <header>
@@ -26,21 +27,23 @@
 
 <main class="login">
 	<h2>Log in</h2>
-	<div class="e-mail">
-		<label for="email">E-mail</label>
-		<input type="email" id="email" name="email">
-	</div>
-	<div class="mot-de-passe">
-		<label for="pass">Mot de passe</label>
-    	<input type="password" id="pass" name="password" minlength="8" required>
-	</div>
-	<div class="bouton">
-		<input type="submit" value="Se connecter">
-	</div>
-	<div class="mdp-oublie">
-		<a href="#">Mot de passe oublié</a>
-	</div>
+	<form id="login">
+		<div class="e-mail">
+			<label for="email">E-mail</label>
+			<input type="email" id="email" name="email" required>
+		</div>
+		<div class="mot-de-passe">
+			<label for="pass">Mot de passe</label>
+			<input type="password" id="pass" name="password" required>
+		</div>
+		<div class="bouton">
+			<input type="submit" value="Se connecter">
+		</div>
+		<div class="mdp-oublie">
+			<a href="#">Mot de passe oublié</a>
+		</div>
+	</form>
 </main>
-
+<script src="../page-login/login.js"></script>
 </body>
 </html>

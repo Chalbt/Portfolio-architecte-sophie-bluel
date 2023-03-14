@@ -10,6 +10,13 @@ body
     align-items: center;
 }
 
+#login
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .login h2
 {
     margin-bottom: 20px;
