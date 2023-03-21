@@ -10,20 +10,23 @@ async function onFormSubmit(event) {
 
     //requête fetch post 
     const response = await fetch("http://localhost:5678/api/users/login", {
-    method: "POST",
-    headers: {
-        "accept": "application/json",
-        "Content-Type":"application/json"
-    },
-    body: JSON.stringify(utilisateur)
+        method: "POST",
+        headers: {
+            "accept": "application/json",
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(utilisateur)
     });
+
+    if(response.status !== 200) {
+        return document.getElementById("errors").innerText = "Erreur dans l'identifiant ou le mot de passe.";
+    }
 
     //attendre la réponse du serveur avec await
     const result = await response.json();
-    console.log(result)
+
     //récupérer et stocker le token d'authentification dans la réponse
-    // Si connexion ok : rediriger vers la page d'accueil
-    // Si ko : "Erreur dans l'identifiant ou le mot de passe." sur la page du formulaire
-    localStorage.setItem("userId", 1);
-    localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4");
+    localStorage.setItem("userId", result.userId);
+    localStorage.setItem("token", result.token);
+    document.location.href="../index.html";
 }
