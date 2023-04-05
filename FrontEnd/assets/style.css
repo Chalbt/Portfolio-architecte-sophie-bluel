@@ -53,7 +53,7 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
-header {
+#header1 {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
@@ -128,7 +128,7 @@ li:hover {
 }
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	margin-right: 15px;
 }
 
 #filtres
@@ -219,5 +219,253 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+/*modale*/
+.modal 
+{
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper
+{
+	overflow: auto;
+	width: 40%;
+	height: 80%;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+h3
+{
+	font-size: 20px;
+	text-align: center;
+}
+
+#bande-noire-modale
+{
+	background-color: black;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	color: white;
+	align-items: center;
+	justify-content: center;
+}
+
+#bande-noire-modale i
+{
+	margin-right: 10px;
+}
+
+.publier-changements
+{
+	border: none;
+	font-family: 'Syne';
+	font-size: 10px;
+	font-weight: 700;
+	color:black;
+	background-color: white;
+	margin-left: 20px;
+	width: 180px;
+	height: 30px;
+	text-align: center;
+	border-radius: 60px;
+}
+
+.header-portfolio
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.js-modal
+{
+	text-decoration: none;
+	color: black;
+}
+
+.header-portfolio i
+{
+	margin-right: 10px;
+}
+
+.js-modal-close
+{
+	border: none;
+	background-color: white;
+	display: flex;
+}
+
+.bouton-modale
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.ajout-photo
+{
+	border: none;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	height: 40px;
+	text-align: center;
+	border-radius: 60px;
+}
+
+.ajout-photo a
+{
+	text-decoration: none;
+	color: white;
+}
+
+.supprimer-photo
+{
+	border: none;
+	background-color: white;
+	color: red;
+}
+
+[data-admin-status="hidden"] {
+	display: none !important;
+}
+
+.galerie-modale
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
+
+.galerie-modale img
+{
+	height: 100%;
+	width: 75px;
+}
+
+.galerie-modale figure
+{
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.galerie-modale icone
+{
+	position: absolute;
+	margin-left: -22px;
+	margin-top: 5px;
+	color: white;
+	background-color: black;
+	padding: 3px;
+}
+
+#titre-modale
+{
+	margin-bottom: 20px;
+}
+
+.choisir-fichier {
+	display: none;
+}
+
+.ajout-photo-formulaire
+{
+	border: none;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #B9C5CC;
+	margin : 2em auto ;
+	width: 180px;
+	height: 40px;
+	text-align: center;
+	border-radius: 60px;
+}
+
+.btn-valider
+{
+	border: none;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: grey;
+	margin : 2em auto ;
+	width: 180px;
+	height: 40px;
+	text-align: center;
+	border-radius: 60px;
+}
+
+.form-fond-bleu
+{
+	background-color: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+	padding-top: 15px;
+	margin-bottom: 20px;
+
+}
+
+.bouton-modale2
+{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.titre-form
+{
+	display: flex;
+	text-decoration: solid;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.form-fond-bleu i
+{
+	font-size: 150px;
+	color: #B9C5CC;
+}
+
+.partie2-form
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.partie2-form label, input, select
+{
+	margin-bottom: 15px;
+}
+
+.cadre-form
+{
+	background: #FFFFFF;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
 }
 

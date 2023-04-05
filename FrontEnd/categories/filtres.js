@@ -32,5 +32,5 @@ async function auClickSurFiltre(filtre) {
         
         projets = projets.filter(projet => projet.category.name === filtre);
     }
-    afficherLaGalerie(projets);    
+    afficherLaGalerie(projets);e    
 }

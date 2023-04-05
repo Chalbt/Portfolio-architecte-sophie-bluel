@@ -9,7 +9,7 @@ async function afficherLaGalerie(projets = null) {
     const container = document.getElementById("galerie")
     container.innerHTML = "";
     for (let projet of projets) { 
-        const vignette = creerVignetteProjet (projet)
+        const vignette = creerVignetteProjet(projet)
         container.appendChild(vignette)
     }       
 }
