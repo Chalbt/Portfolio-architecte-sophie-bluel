@@ -58,8 +58,6 @@
 				<button class="js-modal-close"><i class="fa-solid fa-xmark"></i></button>
 				<h3 id="titre-modale">Galerie photo</h3>
 				<div class="galerie-modale">
-					<div class="button-corbeille">
-					</div>
 				</div>
 				<div class="bouton-modale">
 					<button class="ajout-photo js-modal"><a href="#modal2">Ajouter une photo</a></button>
@@ -74,25 +72,26 @@
 					<button class="modal-retour js-modal-close"><i class="fa-solid fa-arrow-left"></i></button>
 					<button class="js-modal-close"><i class="fa-solid fa-xmark"></i></button>
 				</div>
-				<form id="test-formulaire">
+				<form id="envoi-formulaire">
 					<label class="titre-form">Ajouter photo</label>
 					<div class="form-fond-bleu">
 						<i class="fa-sharp fa-regular fa-image"></i>
-						<input class="choisir-fichier" type="file" id="image" name="image">
-						<button class="ajout-photo-formulaire"><label for="image">+ Ajouter photo</label></button>
+						<input class="choisir-fichier" type="file" accept="image/" id="file" name="image" required>
+						<div class="ajout-photo-formulaire" id="read-file"><label for="file">+ Ajouter photo</label></div>
 						<p>jng, png: 4mo max</p>
 					</div>
 					<div class="partie2-form">
 						<label for="title">Titre</label>
-						<input class="cadre-form" type="text" name="title" id="title">
+						<input class="cadre-form" type="text" name="title" id="title" required>
 						<label for="category">Catégorie</label>
-						<select class="cadre-form" id="category" name="category">
-						<option value="Objets">Objets</option>
-						<option value="Appartements">Appartements</option>
-						<option value="Hotels et restaurants">Hôtels & restaurants</option>
+						<select class="cadre-form" id="category" name="category" required>
+						<option value="1">Objets</option>
+						<option value="2">Appartements</option>
+						<option value="3">Hôtels & restaurants</option>
 						</select>
 						<input class="btn-valider" type="submit" value="valider">
 						</div>
+						<div id="error-form"></div>
 				</form>
 			</div>
 		</aside>

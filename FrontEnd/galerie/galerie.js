@@ -20,7 +20,7 @@ async function recupererProjets() {
     return projets
 }
 
-function creerVignetteProjet (projet) {
+function creerVignetteProjet(projet) {
     const vignetteElt = document.createElement("figure");
     const titleElt = document.createElement("figcaption");
     titleElt.innerText = projet.title

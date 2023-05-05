@@ -14,8 +14,17 @@
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	
+	<div id="header1">
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li>projets</li>
+				<li>contact</li>
+				<li><a href="assets/login.html">login</a></li>
+				<li><img src="./icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 
 <main class="login">
@@ -29,7 +38,6 @@
 			<label for="pass">Mot de passe</label>
 			<input type="password" id="pass" name="password" required>
 		</div>
-		<div id="errors"></div>
 		<div class="bouton">
 			<input type="submit" value="Se connecter">
 		</div>
@@ -37,6 +45,7 @@
 			<a href="#">Mot de passe oublié</a>
 		</div>
 	</form>
+	<div id="errors"></div>
 </main>
 <script src="../page-login/login.js"></script>
 </body>

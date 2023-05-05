@@ -8,7 +8,7 @@ async function onFormSubmit(event) {
         password: event.target.querySelector("[name=password]").value
     }
 
-    //requête fetch post 
+    //requête fetch post
     const response = await fetch("http://localhost:5678/api/users/login", {
         method: "POST",
         headers: {
