@@ -14,23 +14,25 @@ const openModal = function (e) {
     modal.addEventListener("click", closeModal.bind(modal));
     modal.querySelector(".js-modal-close").addEventListener("click", closeModal.bind(modal));
     modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation);
-    //modal.querySelector(".js-modal-close-all").addEventListener("click", closeModalAll);
 }
 
 function closeModal(e) {
     //if (modal === null) return;
-    e.preventDefault();
+    if (e) {
+        e.preventDefault();
+    }
     this.style.display = "none";
     this.setAttribute("aria-hidden", "true");
     this.setAttribute("aria-modal", "false");
-    //modal.removeEventListener("click", closeModal);
-    //modal.querySelector(".js-modal-close").removeEventListener("click", closeModal);
-    //modal.querySelector(".js-modal-close-all").removeEventListener("click", closeModal);
-    //modal.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation);
+}
+
+function closeAllModal() {
+    let modals = document.querySelectorAll(".modal");
+    modals.forEach(modal => closeModal.bind(modal));
 }
 
 
-const stopPropagation = function (e) {
+const stopPropagation = function(e) {
     e.stopPropagation()
 }
 
@@ -108,11 +110,10 @@ const token = localStorage.getItem("token");
 
 
 //transformation des données de l'image
-document.querySelector("#envoi-formulaire").addEventListener('submit', function() {
+document.querySelector("#file").addEventListener('change', function() {
 	// aucun fichier sélectionné 
 	if(document.querySelector("#file").value == '') {
-		console.log('Aucun fichier sélectionné');
-        return;
+        return document.getElementById("error-form").innerText = "Aucun fichier sélectionné";
 	}
 
 	let file = document.querySelector("#file").files[0];
@@ -120,6 +121,9 @@ document.querySelector("#envoi-formulaire").addEventListener('submit', function(
 	reader.onload = async function(e) {
 		// donnée binaire
 		console.log(e.target.result);
+        let img = document.getElementById("image-formulaire");
+        img.src = e.target.result;
+        img.style.display = "inline";
 	};
 	reader.onerror = function(e) {
 		// erreur
@@ -132,6 +136,10 @@ document.querySelector("#envoi-formulaire").addEventListener('submit', function(
 //soumission du formulaire
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
+
+    if(document.querySelector("#file").value == '') {
+        return document.getElementById("error-form").innerText = "Aucun fichier sélectionné";
+	}
 
     //récupérarion des valeurs du formulaire
     const nouveauProjet = {
@@ -164,11 +172,13 @@ form.addEventListener("submit", async function(event) {
             body: formData 
         })
         console.log(response.json());
+        afficherLaGalerie();
+        closeAllModal();
         return
     } catch(error) {
         console.error("Erreur lors de l'ajout du projet :", error)
     }
-    // location.reload() ou closeModal() puis afficherLaGalerie() ??
+   
 })
 
 

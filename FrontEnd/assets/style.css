@@ -428,7 +428,7 @@ h3
 	padding-bottom: 20px;
 	padding-top: 15px;
 	margin-bottom: 20px;
-
+	position: relative;
 }
 
 .bouton-modale2
@@ -468,5 +468,23 @@ h3
 	background: #FFFFFF;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	border: none;
+}
+
+#error-form
+{
+	display: flex;
+	font-weight: 700;
+	color: red;
+	justify-content: center;
+}
+
+#image-formulaire
+{
+	position: absolute;
+	top : 0;
+	left : 50%;
+	transform : translateX(-50%);
+	max-height: 100%;
+	z-index: 1;
 }
 

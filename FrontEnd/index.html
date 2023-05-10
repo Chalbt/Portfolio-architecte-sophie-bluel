@@ -73,13 +73,14 @@
 					<button class="js-modal-close"><i class="fa-solid fa-xmark"></i></button>
 				</div>
 				<form id="envoi-formulaire">
-					<label class="titre-form">Ajouter photo</label>
-					<div class="form-fond-bleu">
+					<div class="titre-form">Ajouter photo</div>
+					<label class="form-fond-bleu">
+						<img style="display:none;" id="image-formulaire">
 						<i class="fa-sharp fa-regular fa-image"></i>
-						<input class="choisir-fichier" type="file" accept="image/" id="file" name="image" required>
+						<input class="choisir-fichier" type="file" accept="image/" id="file" name="image">
 						<div class="ajout-photo-formulaire" id="read-file"><label for="file">+ Ajouter photo</label></div>
 						<p>jng, png: 4mo max</p>
-					</div>
+					</label>
 					<div class="partie2-form">
 						<label for="title">Titre</label>
 						<input class="cadre-form" type="text" name="title" id="title" required>
