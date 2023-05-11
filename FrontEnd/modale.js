@@ -8,17 +8,13 @@ const openModal = function (e) {
     afficherVignetteEdition();
     e.preventDefault();
     const modal = document.querySelector(e.target.getAttribute("href"));
-    
-    
-        modal.style.display = null;
-        modal.setAttribute("aria-hidden", "false");
-        modal.setAttribute("aria-modal", "true");
-        modal.addEventListener("click", closeModal.bind(modal));
-        modal.querySelector(".js-modal-close").addEventListener("click", closeModal.bind(modal));
-        modal.querySelector(".js-modal-close-all").addEventListener("click", closeModal.bind(modal));
-        modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation);
-    
-    
+    modal.style.display = null;
+    modal.setAttribute("aria-hidden", "false");
+    modal.setAttribute("aria-modal", "true");
+    modal.addEventListener("click", closeModal.bind(modal));
+    modal.querySelector(".js-modal-close").addEventListener("click", closeModal.bind(modal));
+    modal.querySelector(".js-modal-close-all").addEventListener("click", closeModal.bind(modal));
+    modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation);   
 }
 
 function closeModal(e) {
@@ -109,6 +105,7 @@ async function suppressionTravaux(projet) {
     } catch(error) {
         console.error("La suppression a échoué : " + error);
     }
+    afficherLaGalerie();
 }  
 
 

@@ -310,6 +310,12 @@ h3
 	display: flex;
 }
 
+.js-modal-close-all
+{
+	border: none;
+	background-color: white;
+}
+
 .invisible
 {
 	display: none;
@@ -346,6 +352,7 @@ h3
 	border: none;
 	background-color: white;
 	color: red;
+	font-family: 'Syne';
 }
 
 [data-admin-status="hidden"] {
@@ -358,10 +365,11 @@ h3
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	margin-left: 60px;
-	margin-right: 60px;
+	margin-left: 80px;
+	margin-right: 80px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #B3B3B3;
 }
-
 
 .galerie-modale img
 {
@@ -394,15 +402,21 @@ h3
 	display: none;
 }
 
+#envoi-formulaire
+{
+	padding: 30px;
+	padding-top: 0;
+}
+
 .ajout-photo-formulaire
 {
 	border: none;
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
+	font-family: 'Work Sans';
+	font-weight: 500;
+	color:#306685;
 	background-color: #B9C5CC;
-	margin : 2em auto ;
-	width: 180px;
+	margin : 15px;
+	width: 150px;
 	height: 25px;
 	padding-top: 10px;
 	text-align: center;
@@ -421,6 +435,9 @@ h3
 	height: 40px;
 	text-align: center;
 	border-radius: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .form-fond-bleu
@@ -440,20 +457,11 @@ h3
 {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 20px;
-}
-
-.titre-form
-{
-	display: flex;
-	text-decoration: solid;
-	justify-content: center;
-	margin-bottom: 20px;
 }
 
 .form-fond-bleu i
 {
-	font-size: 150px;
+	font-size: 90px;
 	color: #B9C5CC;
 }
 
@@ -461,11 +469,18 @@ h3
 {
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #B3B3B3;
 }
 
 .partie2-form label, input, select
 {
 	margin-bottom: 15px;
+}
+
+.partie2-form input, select
+{
+	height: 40px;
 }
 
 .cadre-form
@@ -491,5 +506,10 @@ h3
 	transform : translateX(-50%);
 	max-height: 100%;
 	z-index: 1;
+}
+
+#errors
+{
+	margin-top: 20px;
 }
 

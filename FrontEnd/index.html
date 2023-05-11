@@ -74,7 +74,9 @@
 					<button class="js-modal-close-all"><i class="fa-solid fa-xmark"></i></button>
 				</div>
 				<form id="envoi-formulaire">
-					<div class="titre-form">Ajouter photo</div>
+					<div id="titre-modale">
+						<h3>Ajouter photo</h3>
+					</div>
 					<label class="form-fond-bleu">
 						<img style="display:none;" id="image-formulaire" src="">
 						<i class="fa-sharp fa-regular fa-image"></i>
@@ -91,9 +93,11 @@
 						<option value="2">Appartements</option>
 						<option value="3">Hôtels & restaurants</option>
 						</select>
+					</div>
+					<div>
 						<input class="btn-valider" type="submit" value="valider">
-						</div>
-						<div id="error-form"></div>
+					</div>
+					<div id="error-form"></div>
 				</form>
 			</div>
 		</aside>
