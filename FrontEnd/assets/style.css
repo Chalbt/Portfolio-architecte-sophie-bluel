@@ -310,6 +310,11 @@ h3
 	display: flex;
 }
 
+.invisible
+{
+	display: none;
+}
+
 .bouton-modale
 {
 	display: flex;

@@ -8,12 +8,17 @@ const openModal = function (e) {
     afficherVignetteEdition();
     e.preventDefault();
     const modal = document.querySelector(e.target.getAttribute("href"));
-    modal.style.display = null;
-    modal.setAttribute("aria-hidden", "false");
-    modal.setAttribute("aria-modal", "true");
-    modal.addEventListener("click", closeModal.bind(modal));
-    modal.querySelector(".js-modal-close").addEventListener("click", closeModal.bind(modal));
-    modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation);
+    
+    
+        modal.style.display = null;
+        modal.setAttribute("aria-hidden", "false");
+        modal.setAttribute("aria-modal", "true");
+        modal.addEventListener("click", closeModal.bind(modal));
+        modal.querySelector(".js-modal-close").addEventListener("click", closeModal.bind(modal));
+        modal.querySelector(".js-modal-close-all").addEventListener("click", closeModal.bind(modal));
+        modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation);
+    
+    
 }
 
 function closeModal(e) {
@@ -27,8 +32,11 @@ function closeModal(e) {
 }
 
 function closeAllModal() {
-    let modals = document.querySelectorAll(".modal");
-    modals.forEach(modal => closeModal.bind(modal));
+    //simuler l'évènement click pour fermer modal (ajout close modal sur le listener de la ligne 14)
+    const modal1 = document.querySelector("#modal1");
+    modal1.click();
+    const modal2 = document.querySelector("#modal2");
+    modal2.click();
 }
 
 
