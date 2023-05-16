@@ -1,8 +1,7 @@
 //modale apparait uniquement lorsque l'utilisateur est connectée
-function isAuthenticated () {
+function isAuthenticated() {
    return !!localStorage.getItem("token");
 }
-
 
 const openModal = function (e) {
     afficherVignetteEdition();
@@ -60,6 +59,7 @@ if (isAuthenticated()) {
     }
 }
 
+//création des vignettes projets dans les modales
 function creerVignetteEdition(projet) {
     const vignetteElt = document.createElement("figure");
     const titleElt = document.createElement("figcaption");

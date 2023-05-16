@@ -4,12 +4,10 @@ async function afficherLaGalerie(projets = null) {
     if (projets === null) {
         projets = await recupererProjets();
     }
-    
-    
     const container = document.getElementById("galerie")
     container.innerHTML = "";
     for (let projet of projets) { 
-        const vignette = creerVignetteProjet(projet)
+        const vignette = creerVignetteProjet(projet);
         container.appendChild(vignette)
     }       
 }
@@ -20,6 +18,7 @@ async function recupererProjets() {
     return projets
 }
 
+//création des différents éléments d'une vignette
 function creerVignetteProjet(projet) {
     const vignetteElt = document.createElement("figure");
     const titleElt = document.createElement("figcaption");
