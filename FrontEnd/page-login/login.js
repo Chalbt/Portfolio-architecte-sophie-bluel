@@ -3,6 +3,7 @@ loginForm.addEventListener("submit", onFormSubmit)
 
 async function onFormSubmit(event) {
     event.preventDefault();
+    //stocker les valeurs du formulaire
     const utilisateur = {
         email: event.target.querySelector("[name=email]").value,
         password: event.target.querySelector("[name=password]").value

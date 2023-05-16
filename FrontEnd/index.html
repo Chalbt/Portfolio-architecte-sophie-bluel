@@ -53,42 +53,45 @@
 			<i class="fa-solid fa-pen-to-square" data-admin-status="hidden"></i><a href="#modal1" class="js-modal" data-admin-status="hidden">modifier</a>
 		</div>
 		<!--modale 1-->
-		<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display:none;">
+		<div id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modale" style="display:none;">
 			<div class="modal-wrapper js-modal-stop">
 				<button class="js-modal-close"><i class="fa-solid fa-xmark"></i></button>
 				<button class="js-modal-close-all invisible"><i class="fa-solid fa-xmark"></i></button>
-				<h3 id="titre-modale">Galerie photo</h3>
+				<h3 class="titre-modale">Galerie photo</h3>
 				<div class="galerie-modale">
 				</div>
 				<div class="bouton-modale">
-					<button class="ajout-photo js-modal"><a href="#modal2">Ajouter une photo</a></button>
+					<div class="ajout-photo js-modal"><a href="#modal2">Ajouter une photo</a></div>
 					<button class="supprimer-photo">Supprimer la galerie</button>
 				</div>
 			</div>
-		</aside>
+		</div>
 			<!--modale 2-->
-		<aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display:none;">
+		<div id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modale" style="display:none;">
 			<div class="modal-wrapper js-modal-stop">
 				<div class="bouton-modale2">
 					<button class="modal-retour js-modal-close"><i class="fa-solid fa-arrow-left"></i></button>	
 					<button class="js-modal-close-all"><i class="fa-solid fa-xmark"></i></button>
 				</div>
 				<form id="envoi-formulaire">
-					<div id="titre-modale">
-						<h3>Ajouter photo</h3>
+					<div id="title-modale">
+						<h3 class="titre-modale">Ajouter photo</h3>
 					</div>
-					<label class="form-fond-bleu">
-						<img style="display:none;" id="image-formulaire" src="">
-						<i class="fa-sharp fa-regular fa-image"></i>
-						<input class="choisir-fichier" type="file" accept="image/" id="file" name="image">
-						<div class="ajout-photo-formulaire" id="read-file"><label for="file">+ Ajouter photo</label></div>
+					<div class="form-fond-bleu">
+						<div>
+							<img style="display:none;" id="image-formulaire" src="/FrontEnd/assets/images/">
+							<i class="fa-sharp fa-regular fa-image"></i>
+							<input class="choisir-fichier" type="file" accept="image/" id="file" name="image">
+							<div class="ajout-photo-formulaire" id="read-file"><label for="file">+ Ajouter photo</label></div>	
+						</div>
 						<p>jng, png: 4mo max</p>
-					</label>
+					</div>
 					<div class="partie2-form">
 						<label for="title">Titre</label>
 						<input class="cadre-form" type="text" name="title" id="title" required>
 						<label for="category">Catégorie</label>
 						<select class="cadre-form" id="category" name="category" required>
+						<option value="">Catégorie</option>	
 						<option value="1">Objets</option>
 						<option value="2">Appartements</option>
 						<option value="3">Hôtels & restaurants</option>
@@ -100,7 +103,7 @@
 					<div id="error-form"></div>
 				</form>
 			</div>
-		</aside>
+		</div>
 		
 		
 
