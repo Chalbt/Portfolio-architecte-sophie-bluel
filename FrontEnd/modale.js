@@ -3,13 +3,17 @@ function isAuthenticated() {
    return !!localStorage.getItem("token");
 }
 
-const openModal = function (e) {
+//création des modales
+const openModal = function(e) {
     afficherVignetteEdition();
     e.preventDefault();
+    //élément déclencheur de l'ouverture des modales
     const modal = document.querySelector(e.target.getAttribute("href"));
+    //suppression du display none et du hidden avec l'ajustement des attributs
     modal.style.display = null;
     modal.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-modal", "true");
+    //écouteur d'évènement pour fermer la modale
     modal.addEventListener("click", closeModal.bind(modal));
     modal.querySelector(".js-modal-close").addEventListener("click", closeModal.bind(modal));
     modal.querySelector(".js-modal-close-all").addEventListener("click", closeModal.bind(modal));
@@ -21,24 +25,26 @@ function closeModal(e) {
     if (e) {
         e.preventDefault();
     }
+    //ajustement des attributs pour fermer la modale en la masquant
     this.style.display = "none";
     this.setAttribute("aria-hidden", "true");
     this.setAttribute("aria-modal", "false");
 }
 
 function closeAllModal() {
-    //simuler l'évènement click pour fermer modal (ajout close modal sur le listener de la ligne 14)
+    //simuler l'évènement click pour fermer modal (ajout closeModal sur le listener de la ligne 17)
     const modal1 = document.querySelector("#modal1");
     modal1.click();
     const modal2 = document.querySelector("#modal2");
     modal2.click();
 }
 
-
+//empêcher la propagation
 const stopPropagation = function(e) {
     e.stopPropagation()
 }
 
+//ouverture des modales
 document.querySelectorAll(".js-modal").forEach(a => {
     a.addEventListener("click", openModal)
 })
@@ -76,6 +82,7 @@ function creerVignetteEdition(projet) {
     return vignetteElt
 }
 
+//affichage des vignettes
 async function afficherVignetteEdition() {
     let projets = await recupererProjets();
     const container = document.querySelector(".galerie-modale")
@@ -88,8 +95,10 @@ async function afficherVignetteEdition() {
 
 //function delete travaux
 async function suppressionTravaux(projet) {
+    //récupération du token pour l'authorisation
     const token = localStorage.getItem("token");
     try {
+        //envoie de la requête suppression à l'aide de la méthode DELETE et de l'id du projet
         const response = await fetch("http://localhost:5678/api/works/" + projet.id, {
             method: "DELETE",
             headers: {
@@ -100,7 +109,7 @@ async function suppressionTravaux(projet) {
         if (response.status !== 204) {
             throw "Code http différent de 204"
         }
-        //this contient la vignette grâce à la ligne 72 (fonction suppressionTravaux.bind)
+        //this contient la vignette grâce à la ligne 78 (fonction suppressionTravaux.bind)
         this.remove();
     } catch(error) {
         console.error("La suppression a échoué : " + error);
@@ -113,19 +122,21 @@ async function suppressionTravaux(projet) {
 const form = document.getElementById("envoi-formulaire");
 const token = localStorage.getItem("token");
 
-
-//transformation des données de l'image
+//transformation des données et affichage de l'image dans le formulaire
 document.querySelector("#file").addEventListener('change', function() {
 	// aucun fichier sélectionné 
 	if(document.querySelector("#file").value == '') {
         return document.getElementById("error-form").innerText = "Aucun fichier sélectionné";
 	}
 
+    //récupération du fichier
 	let file = document.querySelector("#file").files[0];
+
+    //transformation en donnée binaire
     let reader = new FileReader();
 	reader.onload = async function(e) {
-		// donnée binaire
 		console.log(e.target.result);
+        //affichage de l'image
         let img = document.getElementById("image-formulaire");
         img.src = e.target.result;
         img.style.display = "inline";
@@ -134,6 +145,8 @@ document.querySelector("#file").addEventListener('change', function() {
 		// erreur
 		console.log('Erreur : ' + e.type);
 	};
+
+    //conversion du fichier
 	reader.readAsDataURL(file);
     console.log(file)
 });
@@ -182,9 +195,9 @@ form.addEventListener("submit", async function(event) {
         return
     } catch(error) {
         console.error("Erreur lors de l'ajout du projet :", error)
-    }
-   
+    }  
 })
+
 
 
     

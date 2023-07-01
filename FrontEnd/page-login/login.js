@@ -1,6 +1,8 @@
+//ajout de l'écouteur d'évènement 
 const loginForm = document.getElementById("login");
 loginForm.addEventListener("submit", onFormSubmit)
 
+//envoie des données du formulaire 
 async function onFormSubmit(event) {
     event.preventDefault();
     //stocker les valeurs du formulaire
@@ -19,6 +21,7 @@ async function onFormSubmit(event) {
         body: JSON.stringify(utilisateur)
     });
 
+    //message d'erreur
     if(response.status !== 200) {
         return document.getElementById("errors").innerText = "Erreur dans l'identifiant ou le mot de passe.";
     }
@@ -29,5 +32,6 @@ async function onFormSubmit(event) {
     //récupérer et stocker le token d'authentification dans la réponse
     localStorage.setItem("userId", result.userId);
     localStorage.setItem("token", result.token);
+    //redirection vers la page d'accueil
     document.location.href="../index.html";
 }
